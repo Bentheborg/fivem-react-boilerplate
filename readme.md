@@ -13,19 +13,19 @@ This boilerplate supports three distinct entry points that are handled by the sa
 - **3D DUI Items**: A built-in configuration for rendering immersive 3D-DUI elements within the game world. *(Repo includes only the NUI side; Lua world-side implementation is not included and must be handled in your game script.)*
 
 ## 🚀 Getting Started
-
-1. Build the UI:
+1. Clone the repo & move into your servers /resources folder
+2. Build the UI:
    ```bash
    cd web
    npm install
    npm run build
    ```
-2. Move the generated `dist/` folder and remaining resource files to your FiveM resource directory.
-3. Add to `server.cfg`:
+3. Rename the cloned repo/ resource to your-resource-name
+4. Add to `server.cfg`:
    ```cfg
    ensure your-resource-name
    ```
-4. In `client.lua`, run a test command:
+5. In your other resource such as `client.lua`, run a test command:
    ```lua
    exports["your-resource-name"]:sendMessage("set-Example-visible", true)
    ```
