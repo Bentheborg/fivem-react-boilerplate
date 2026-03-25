@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700;800;900&display=swap");
+
+:root {
+    --app-font: "Roboto", sans-serif;
+    /* Assets */
+    --main-bg: url("./img/test-background.png");
+    --font-size-heading: clamp(1rem, calc(3vw + 1rem), 4rem);
+    /* Brand Colors - Red Theme */
+    --color-brand-primary: #cf291d;
+    --color-brand-primary-dark: #ad241a;
+    --color-brand-primary-light: #df372b;
+    --color-brand-secondary: #cced00;
+    --color-brand-accent: #111111;
+    --color-brand-highlight: #cced00;
+    --color-brand-soft: #efefef;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none !important;
+    -moz-user-select: none !important;
+    -webkit-user-select: none !important;
+    -ms-user-select: none !important;
+}
+
+*:focus,
+*:focus-visible {
+    outline: none !important;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    overflow: hidden;
+    background: var(--main-bg) no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: var(--app-font);
+}
+
+#root {
+    height: 100%;
+}
+
+:root {
+    --theme-background: #0d1220;
+    --theme-surface: rgba(20, 27, 37, 0.96);
+    --theme-border: rgba(107, 153, 255, 0.25);
+    --theme-text-primary: #dbe8ff;
+    --theme-text-secondary: #aab8d9;
+    --theme-action: #3e7df5;
+    --theme-action-hover: #72a3ff;
+    --theme-accent: #94ccff;
+    --theme-shadow: 0 10px 36px rgba(7, 15, 27, 0.55);
+
+    --spacer-xs: 0.25rem;
+    --spacer-sm: 0.5rem;
+    --spacer-md: 0.85rem;
+    --spacer-lg: 1.2rem;
+}
+
+.theme-dark {
+    background: radial-gradient(circle at 20% 20%, #1d2d53 0%, #0f172b 45%, #07121e 100%);
+    color: var(--theme-text-primary);
+}
+
+.theme-light {
+    background: linear-gradient(145deg, #f6f8ff 0%, #e4e9ff 100%);
+    color: #192a48;
+}
+
+html,
+body,
+#root,
+* {
+    font-family: var(--app-font) !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body.showcase-cursor-hover {
+    cursor: grab !important;
+}

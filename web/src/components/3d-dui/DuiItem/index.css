@@ -1,0 +1,58 @@
+﻿.dui-item-frame {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	pointer-events: none;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.4rem 0.7rem;
+	border-radius: 0.45rem;
+	background: rgba(0, 0, 0, 0.45);
+	color: #fff;
+	font-family:  Segoe UI, Roboto, Arial, sans-serif;
+	font-size: 0.88rem;
+	line-height: 1.2;
+	border: 1px solid rgba(255, 255, 255, 0.15);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+	user-select: none;
+	white-space: nowrap;
+	max-width: 95vw;
+	box-sizing: border-box;
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+}
+
+.dui-text-bar {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.dui-text-label,
+.dui-text-key {
+	pointer-events: none;
+}
+
+.dui-text-label {
+	color: rgba(240, 240, 240, 0.95);
+}
+
+.dui-text-key {
+	color: #fff;
+	font-weight: 700;
+	padding: 0 0.18rem;
+	border-radius: 0.25rem;
+	background: rgba(255, 255, 255, 0.15);
+	font-size: 0.95rem;
+	letter-spacing: 0.025em;
+}
+
+/* Make sure DuiItem is always above NUI overlays, but not too invasive to other game UI */
+.dui-item-frame {
+	z-index: 2147483647;
+}
