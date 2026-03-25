@@ -1,4 +1,4 @@
-# React Validation & Component Boilerplate
+# FiveM React NUI Boilerplate
 
 This project is designed as a standalone resource that contains only NUI frontend code and assets. It is meant to be used alongside your main game logic script resources via exports/imports (e.g., `exports["your-nui-resource"]:sendMessage(...)`, `setComponentVisible`, and `setFocus`).
 
