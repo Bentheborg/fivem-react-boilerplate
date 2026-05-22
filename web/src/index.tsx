@@ -24,7 +24,7 @@ const container = document.getElementById("root");
 
 const root = createRoot(container!);
 
-// DO NOT FUCKING COMMENT THESE OUT USE `./config.ts` TO DISABLE/ENABLE COMPONENTS
+// You shouldn't comment out the below but rather use `./config.ts` to disable/enable components while developing
 root.render(
     <React.StrictMode>
         <Example />
