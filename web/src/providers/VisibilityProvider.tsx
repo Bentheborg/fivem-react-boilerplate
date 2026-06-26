@@ -21,30 +21,22 @@ interface VisibilityProviderValue {
 }
 
 export const VisibilityProvider: React.FC<VisibilityProviderProps> = ({ children, componentName, autoEnabled = false, isHideable = true, closeKeys }) => {
-    if (isWebDevEnv() && enabledDebugComps.includes(componentName) && !autoEnabled) {
-        autoEnabled = true;
-    }
-    if (autoEnabled && isWebDevEnv() && !enabledDebugComps.includes(componentName)) {
-        autoEnabled = false;
-    }
-    const [visible, setVisible] = useState(isWebDevEnv() ? autoEnabled : false);
-    const [displayVisible, setDisplayVisible] = useState(isWebDevEnv() ? autoEnabled : false);
+    const isDebugEnabled = isWebDevEnv() && enabledDebugComps.includes(componentName);
+    const isDebugDisabled = isWebDevEnv() && !enabledDebugComps.includes(componentName);
+    const defaultVisible = isDebugDisabled ? false : autoEnabled || isDebugEnabled;
+    const [visible, setVisible] = useState(defaultVisible);
     const [wasGloballyHidden, setWasGloballyHidden] = useState(false);
     const [hasError, setHasError] = useState(false);
     const [errorKey, setErrorKey] = useState(0);
-
-    useEffect(() => {
-        setDisplayVisible(visible);
-    }, [visible]);
 
     useNuiEvent<boolean>(`set-${componentName}-visible`, (value) => {
         const show = value === true;
         setVisible(show);
         setWasGloballyHidden(false);
     });
-    useNuiEvent<boolean>(`reset-ui-state`, () => setVisible(autoEnabled));
+    useNuiEvent<boolean>(`reset-ui-state`, () => setVisible(defaultVisible));
     useNuiEvent<boolean>(`hide-nui`, () => {
-        if (isHideable && visible && displayVisible && !hasError) {
+        if (isHideable && visible && !hasError) {
             setWasGloballyHidden(true);
             setVisible(false);
         }
@@ -85,7 +77,7 @@ export const VisibilityProvider: React.FC<VisibilityProviderProps> = ({ children
     return (
         <VisibilityCtx.Provider
             value={{
-                visible: displayVisible,
+                visible,
                 setVisible,
             }}
         >
